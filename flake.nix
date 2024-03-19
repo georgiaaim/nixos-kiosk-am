@@ -11,9 +11,9 @@
       modules = [
         kioskBase.nixosModules.baseEnvironment
         ./hardware-configuration.nix # The consumer's specific hardware configuration
-        ({ pkgs, ... }: {
+        ({ pkgs, lib, ... }: {
           # Any additional system-specific configuration
-          networking.hostName = "AMVignette";
+          networking.hostName = lib.mkForce "AMVignette";
         })
       ];
     };
